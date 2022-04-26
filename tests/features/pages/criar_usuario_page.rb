@@ -4,6 +4,7 @@ class User < SitePrism::Page
     element :nome_completo, '#pf_nome_cliente'
     element :dtNascto,      '#pf_data_nascimento'
     element :cpf,           '#pf_cpf_cliente'
+    element :telefonefixo,  '#telefone_cliente'
     element :telefone,      '#telefone_cliente_2'
     element :email,         '#email_cliente'  
     element :email_conf,    '#email_cliente2' 
@@ -15,6 +16,7 @@ class User < SitePrism::Page
         nome_completo.set Faker::Name.name_with_middle  
         dtNascto.set      Faker::Date.birthday(min_age: 18, max_age: 65).strftime('%d-%m-%Y')
         cpf.set           Faker::CPF.numeric
+        telefonefixo.set  '115' + Faker::PhoneNumber.phone_number
         telefone.set      '119' + Faker::PhoneNumber.phone_number
 
         @email          = Faker::Internet.email
